@@ -1,5 +1,7 @@
 package com.management.bean;
 
+import java.util.Scanner;
+
 public class Student {
 
 	private int roll;
@@ -7,8 +9,22 @@ public class Student {
 	private String email;
 	private String password;
 
+	
+	
+	
+	
 	public Student() {
-		// TODO Auto-generated constructor stub
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Name: ");
+		this.name=sc.next();
+		
+		System.out.println("Enter email: ");
+		this.email=sc.next();
+		
+		
+		System.out.println("Enater Password: ");
+		this.password=sc.next();
 	}
 
 	public Student(int roll, String name, String email, String password) {

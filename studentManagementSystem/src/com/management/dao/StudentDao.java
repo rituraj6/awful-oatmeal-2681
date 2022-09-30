@@ -1,14 +1,13 @@
 package com.management.dao;
 
-import java.util.List;
 
-import com.management.bean.Student;
+import com.management.exception.StudentExeption;
 
 public interface StudentDao {
 	
-	public String registerCourse(int roll);
-	public String updateDetail(int roll);
-	public List<String> displayAllCourseAndDetail();
+	public String registerCourse() throws StudentExeption;
+	public void updateDetail();
+	public void displayAllCourseAndDetail();
 	
 
 }
