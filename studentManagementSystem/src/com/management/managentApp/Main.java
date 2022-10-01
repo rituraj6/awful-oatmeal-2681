@@ -16,7 +16,7 @@ public class Main {
 		if (choice == 1)
 			SMS.run();
 		else
-			AdminService.selectCotegory();
+			AdminService.run();
 	}
 
 	public static void main(String[] args) {

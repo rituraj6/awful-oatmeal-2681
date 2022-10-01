@@ -136,7 +136,7 @@ public class StudentDaoImp implements StudentDao{
 			else throw new StudentExeption("Either you already registered in course or check Course ID properly");
 			
 		}catch(SQLException se) {
-			se.printStackTrace();
+			System.out.println(se.getMessage());
 		}
 		
 		return masg;
@@ -245,33 +245,21 @@ public class StudentDaoImp implements StudentDao{
 			PreparedStatement ps = con.prepareStatement("select * from course");
 			ResultSet x = ps.executeQuery();
 			
-			System.out.println("+-----+-------+----------+------+");
-			System.out.println("| cId | cName | avalSeat | Fees |");
+			System.out.println("+-----+-------+------+");
+			System.out.println("| cId | cName | Fees |");
 			
 			while(x.next()) {
-				System.out.println("+-----+-------+----------+------+");
-				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+" |        "+x.getInt("avalSeat")+" | "+x.getInt("fees")+" |");
-				System.out.println("+-----+-------+----------+------+");
+				System.out.println("+-----+-------+------+");
+				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+" | "+x.getInt("fees")+" |");
+				System.out.println("+-----+-------+------+");
 				
 			}
 			
-			updateDetail();
+			SMS.selectCotegory();
 			
 		} catch (SQLException e) {
 			
 		}
-	}
-
-	
-	public static void main(String[] args) {
-		StudentDaoImp s=new StudentDaoImp();
-		
-//		s.registerCourse(1);
-		
-//		s.updateDetail(1);
-//		s.login("ROHIT@GMAIL.COM","ROHIT11");
-		
-//		s.displayAllCourseAndDetail();
 	}
 
 
