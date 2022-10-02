@@ -107,9 +107,8 @@ public class StudentDaoImp implements StudentDao{
 			while(rs.next()) {
 				int id=rs.getInt("cId");
 				String cName=rs.getString("cName");
-				int seat=rs.getInt("avalSeat");
 				System.out.println(id+". "+cName);
-				System.out.println("Available seat in this course: "+seat +" | fees= "+rs.getInt("fees"));
+				System.out.println("COURSE ID: "+id+" | COURSE NAME: "+cName+" | fees= "+rs.getInt("fees"));
 				
 				System.out.println("*-=-=-=*=-=-=-=-=*=-=-=-=-*=-=-=-=*");
 			}
@@ -242,16 +241,16 @@ public class StudentDaoImp implements StudentDao{
 		
 		try(Connection con = DBUtil.provideConnection()) {
 			
-			PreparedStatement ps = con.prepareStatement("select * from course");
+			PreparedStatement ps = con.prepareStatement("select c.cid,c.cname,c.fees,b.avalSeat from course c inner join batch b on c.cid=b.bid");
 			ResultSet x = ps.executeQuery();
 			
-			System.out.println("+-----+-------+------+");
-			System.out.println("| cId | cName | Fees |");
+			System.out.println("+-----+-------+------+--------+");
+			System.out.println("| cId | cName | Fees |   Seat |");
 			
 			while(x.next()) {
-				System.out.println("+-----+-------+------+");
-				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+" | "+x.getInt("fees")+" |");
-				System.out.println("+-----+-------+------+");
+				System.out.println("+-----+-------+------+--------+");
+				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+" | "+x.getInt("fees")+" |   "+x.getInt("avalSeat")+"    | " );
+				System.out.println("+-----+-------+------+--------+");
 				
 			}
 			

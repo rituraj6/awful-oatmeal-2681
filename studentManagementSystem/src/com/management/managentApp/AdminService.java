@@ -64,6 +64,7 @@ import com.management.exception.StudentExeption;
 			
 			
 		}else {
+			System.out.println("email or password is wrong: ");
 			run();
 		}
 		
@@ -109,8 +110,13 @@ import com.management.exception.StudentExeption;
 		System.out.println("Select functionality:->\n");
 		System.out.println("1.Add New course: ");
 		System.out.println("2.Update Fees of Course: ");
-		System.out.println("3.Delete Course: ");
-		System.out.println("4.Search Abour Course: ");
+		System.out.println("3.Delete Course from batch: ");
+		System.out.println("4.SEARCH Abour Course: ");
+		System.out.println("5.CREATE BATCH: ");
+		System.out.println("6.ALOCATE BATCH FOR STUDENT: ");
+		System.out.println("7.UPDATE SEAT UNDER BATCH: ");
+		System.out.println("8.View All Student Of Every Batch");
+		System.out.println("9.Go Back: ");
 		
 		int method=sc.nextInt();
 		
@@ -149,13 +155,53 @@ import com.management.exception.StudentExeption;
 				     break;
 					}
 			
-			case 3:{
+			case 3:{	
+						try {
+							String msg=administrator.deleteCoursefrombatch();
+							System.out.println(msg);
+						} catch (StudentExeption e) {
+							// TODO Auto-generated catch block
+							System.out.println(e.getMessage());
+						}
+						selectCotegory();
 						break;
 					}
 			
 			
 			case 4: {
+						try {
+							administrator.searchAboutCourse();
+						} catch (StudentExeption e) {
+							System.out.println(e.getMessage());
+						}
+						selectCotegory();
+						break;
+					}
+			
+			case 5: {
+						administrator.createBatch();
+						selectCotegory();
+						break;
+					}
+			
+			case 6: {
+						break;
+		        	}
+			
+			case 7: {
+						administrator.updateSeatUnderBatch();
+						selectCotegory();
+						break;
+					}
+			
+			case 8: {
+						break;
+					}
+			
+			
+			case 9: {
 						run();
+						break;
 					}
 		
 		
