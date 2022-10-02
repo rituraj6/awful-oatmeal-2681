@@ -129,7 +129,7 @@ public class SMS {
 						selectCotegory();
 						
 					} catch (StudentExeption e) {
-						e.printStackTrace();
+						System.out.println(e.getMessage());
 					}
 					
 					selectCotegory();
