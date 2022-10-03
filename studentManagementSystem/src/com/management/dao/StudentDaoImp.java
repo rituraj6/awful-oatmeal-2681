@@ -244,13 +244,14 @@ public class StudentDaoImp implements StudentDao{
 			PreparedStatement ps = con.prepareStatement("select c.cid,c.cname,c.fees,b.avalSeat from course c inner join batch b on c.cid=b.bid");
 			ResultSet x = ps.executeQuery();
 			
-			System.out.println("+-----+-------+------+--------+");
-			System.out.println("| cId | cName | Fees |   Seat |");
+			System.out.println("+-----+----------------+------+--------+");
+			System.out.println("| cId |      cName     | Fees |   Seat |");
+			System.out.println("+-----+----------------+------+--------+");
 			
 			while(x.next()) {
-				System.out.println("+-----+-------+------+--------+");
-				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+" | "+x.getInt("fees")+" |   "+x.getInt("avalSeat")+"    | " );
-				System.out.println("+-----+-------+------+--------+");
+				
+				System.out.println("|   "+x.getInt("cId")+" |  "+x.getString("cName")+"          | "+x.getInt("fees")+" |  "+x.getInt("avalSeat")+"  | " );
+				System.out.println("+-----+----------------+------+--------+");
 				
 			}
 			

@@ -25,6 +25,7 @@ public class Main {
 		
 		choice();
 		System.out.println("Thankyou for visiting this aplication");
+		return;
 		
 
 	}

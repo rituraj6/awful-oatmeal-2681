@@ -185,6 +185,12 @@ import com.management.exception.StudentExeption;
 					}
 			
 			case 6: {
+						try {
+							administrator.alocateBatchForStudent();
+						} catch (StudentExeption e) {
+							System.out.println(e.getMessage());
+						}
+						selectCotegory();
 						break;
 		        	}
 			
