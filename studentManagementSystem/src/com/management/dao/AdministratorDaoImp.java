@@ -417,7 +417,7 @@ public class AdministratorDaoImp implements AdministratorDao {
 
 		try(Connection con =  DBUtil.provideConnection()) {
 			
-			
+			PreparedStatement ps = con.prepareStatement("select s.roll,s.name,s.email,b.batch");
 			
 		} catch (SQLException e) {
 			
